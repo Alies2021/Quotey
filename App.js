@@ -26,6 +26,12 @@ const removeLoader = () => {
     quoteContainer.classList.remove('invisible');
 }
 
+//function to show a pop up
+function showPopUp(content) {
+    popUpMessage.textContent = content;
+    popUp.classList.remove('vanish');
+    overlay.classList.add('active');
+}
 
 //generating new quotes
 const getNewQuote = (quotesArr) => {
@@ -64,15 +70,11 @@ const fetchQuotes = async () => {
         getNewQuote(quotes);
     }
     catch (error) {
-        console.log(error);
+        const errMessage = error.message;
+        showPopUp(errMessage + " pls check your connection again")
     }
 }
-//function to show a pop up
-function showPopUp(content) {
-    popUpMessage.textContent = content;
-    popUp.classList.remove('vanish');
-    overlay.classList.add('active');
-}
+
 
 //function to delete the pop up
 function deletePopUp() {
@@ -89,7 +91,7 @@ function showOverlay() {
 function tweetQuote() {
     const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.innerText} - ${authorText.innerText}`;
     if (!quoteText.innerText.length && !authorText.innerText.length) {
-        showPopUp('There must some quotes and the respected author');
+        showPopUp('There must be some quotes and the corresponding author');
         showOverlay();
     } else {
         window.open(twitterUrl, '_blank')
