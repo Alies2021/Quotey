@@ -133,6 +133,10 @@ img:active {
     padding: 10px;
     border-radius: 10px;
     animation: opening 0.8s ease-in;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #quote-text-cont {
@@ -231,11 +235,7 @@ img:active {
 
 
 /* responsive styling using media queryies */
-@media (min-width: 980px) and (max-width: 1230px) {
-    div.pop-up {
-        left: -200px;
-    }
-}
+
 @media screen and (max-width: 650px) {
     #quote-text-cont #quote {
         font-size: 25px;
@@ -261,7 +261,9 @@ img:active {
         position: relative;
         left: 30px;
     }
-
+    .author {
+        text-decoration: none;
+    }
 }
 
 @media screen and (max-width: 450px) {
