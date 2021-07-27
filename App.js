@@ -118,4 +118,3 @@ twitterBtn.addEventListener('click', tweetQuote);
 newQuoteBtn.addEventListener('click', fetchQuotes);
 authorText.addEventListener('click', getAuthorDescription)
 okBtn.addEventListener('click', deletePopUp)
-
